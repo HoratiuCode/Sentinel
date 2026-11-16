@@ -1,0 +1,93 @@
+:root {
+  /* Black & White monochrome design system */
+  --bg-dark: #08090e;
+  --bg-panel: rgba(13, 16, 27, 0.75);
+  --bg-card: rgba(20, 26, 43, 0.5);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(255, 255, 255, 0.3);
+  /* Monochrome accent scale: white = highest intensity / threat */
+  --accent-cyan: #ffffff;   /* primary UI accent -> white */
+  --accent-green: #d4d4d4;  /* LOW risk -> light grey */
+  --accent-amber: #a3a3a3;  /* MEDIUM risk -> mid grey */
+  --accent-red: #ffffff;    /* HIGH risk / danger -> pure white */
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Orbitron', 'Courier New', Courier, monospace;
+
+  --shadow-cyan: 0 0 15px rgba(255, 255, 255, 0.25);
+  --shadow-green: 0 0 15px rgba(255, 255, 255, 0.2);
+  --shadow-amber: 0 0 15px rgba(255, 255, 255, 0.15);
+  --shadow-red: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Utility Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes scan-vertical {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
